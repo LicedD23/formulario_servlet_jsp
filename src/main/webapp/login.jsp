@@ -9,9 +9,18 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Login de usuario</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <div>Ingreso Usuario</div>
+        <form name="Ingreso" action="ValidarUsuario" method="post">
+            <br><br>
+            Usuario:<input type="text" name="usuario" value="" />
+            <br><br>
+            Clave:<input type="text" name="clave" value="" />
+            <br><br>
+            <input type="submit" value="Ingresar" />
+            <br><br>
+        </form>
     </body>
 </html>
