@@ -19,11 +19,11 @@ public class ValidarUsuarioServlet extends HttpServlet{
     protected void doPost(HttpServletRequest request, 
 HttpServletResponse response) 
             throws ServletException, IOException { 
-        // Obtener parámetros 
+        
         String user = request.getParameter("usuario"); 
         String pass = request.getParameter("clave"); 
          
-        // Validar credenciales 
+        
         boolean esValido = false; 
         String mensaje = ""; 
          
@@ -34,12 +34,12 @@ HttpServletResponse response)
             mensaje = "Registro Inválido"; 
         } 
          
-        // Agregar atributos al request 
+        
         request.setAttribute("esValido", esValido); 
         request.setAttribute("mensaje", mensaje); 
         request.setAttribute("usuario", user); 
          
-        // Redirigir a JSP 
+       
         request.getRequestDispatcher("resultado.jsp").forward(request, 
 response); 
     } 

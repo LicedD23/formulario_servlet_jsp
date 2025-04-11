@@ -12,18 +12,17 @@
         <title>Resultado de Validacion</title>
     </head>
     <body>
-        <h1>$(mensaje)</h1>
-        <%
-            Boolean valido = (Boolean) request.getAttribute("esValido");
-            if (valido! = null && valido){
-            
-       
-            %>
+        <h1>Bienvenido a este sitio web</h1>
+          
+    <%  
+        Boolean valido = (Boolean)request.getAttribute("esValido"); 
+        if(valido != null && valido) {  
+    %> 
             <p>Bienvenido , ${usuario}!</p> 
         <p>Has iniciado sesión correctamente.</p> 
     <% } else { %> 
         <p>Usuario o contraseña incorrectos.</p> 
-        <a href="login.html">Volver a intentar</a> 
+        <a href="login.jsp">Volver a intentar</a> 
     <% } %> 
             
     </body>
