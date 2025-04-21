@@ -12,6 +12,8 @@
         <title>Login de usuario</title>
     </head>
     <body>
+       
+            
         <div>Ingreso Usuario</div>
         <form name="Ingreso" action="ValidarUsuario" method="post">
             <br><br>
@@ -21,6 +23,7 @@
             <br><br>
             <input type="submit" value="Ingresar" />
             <br><br>
+            
         </form>
     </body>
 </html>

@@ -37,7 +37,8 @@ HttpServletResponse response)
         
         request.setAttribute("esValido", esValido); 
         request.setAttribute("mensaje", mensaje); 
-        request.setAttribute("usuario", user); 
+        request.setAttribute("usuario", user);
+       
          
        
         request.getRequestDispatcher("resultado.jsp").forward(request, 

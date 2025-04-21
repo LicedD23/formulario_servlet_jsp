@@ -23,7 +23,22 @@
     <% } else { %> 
         <p>Usuario o contraseña incorrectos.</p> 
         <a href="login.jsp">Volver a intentar</a> 
-    <% } %> 
+    <%}%>
+   
+    <h2>Menu de opciones</h2>
+    <div
+        <form name="Menu" action="Menu de opciones" method="post">
+            
+            <input type="submit" value="Inicio" />
+            <input type="submit" value="Documentos" />
+            <input type="submit" value="Categorias" />
+            <input type="submit" value="Ayuda" />
+            
+    </div>
+   
+                              
+    </form> 
+     
             
     </body>
 </html>
