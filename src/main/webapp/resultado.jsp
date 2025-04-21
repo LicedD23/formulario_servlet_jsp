@@ -11,34 +11,155 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Resultado de Validacion</title>
     </head>
-    <body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 0;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 20px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width: 90%;
+            max-width: 600px;
+            text-align: center;
+        }
+        
+        h1 {
+            color: #2563eb;
+            margin-bottom: 30px;
+            font-size: 28px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        h1:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background-color: #2563eb;
+            border-radius: 2px;
+        }
+        
+        p {
+            margin: 15px 0;
+            font-size: 18px;
+        }
+        
+        .success-message {
+            background-color: #d1fae5;
+            border-left: 4px solid #10b981;
+            padding: 15px 20px;
+            border-radius: 5px;
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        
+        .error-message {
+            background-color: #fee2e2;
+            border-left: 4px solid #ef4444;
+            padding: 15px 20px;
+            border-radius: 5px;
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        
+        .username {
+            font-weight: bold;
+            color: #1e40af;
+        }
+        
+        a {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 12px 30px;
+            background-color: #2563eb;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        a:hover {
+            background-color: #1e40af;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+        }
+        
+        /* Menú de opciones */
+        .menu {
+            margin-top: 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .menu-item {
+            background-color: #f3f4f6;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: #374151;
+            font-weight: 500;
+        }
+        
+        .menu-item:hover {
+            background-color: #e5e7eb;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
         <h1>Bienvenido a este sitio web</h1>
-          
-    <%  
-        Boolean valido = (Boolean)request.getAttribute("esValido"); 
-        if(valido != null && valido) {  
-    %> 
-            <p>Bienvenido , ${usuario}!</p> 
-        <p>Has iniciado sesión correctamente.</p> 
-    <% } else { %> 
-        <p>Usuario o contraseña incorrectos.</p> 
-        <a href="login.jsp">Volver a intentar</a> 
-    <%}%>
-   
-    <h2>Menu de opciones</h2>
-    <div
-        <form name="Menu" action="Menu de opciones" method="post">
+        
+        <% 
+            Boolean valido = (Boolean)request.getAttribute("esValido");
+            if(valido != null && valido) { 
+        %>
+            <div class="success-message">
+                <p>Bienvenido, <span class="username">${usuario}</span></p>
+                <p>Has iniciado sesión correctamente.</p>
+            </div>
             
-            <input type="submit" value="Inicio" />
-            <input type="submit" value="Documentos" />
-            <input type="submit" value="Categorias" />
-            <input type="submit" value="Ayuda" />
+            <!-- Menú de opciones -->
+            <div class="menu">
+                <a href="perfil.jsp" class="menu-item">Inicio</a>
+                <a href="configuracion.jsp" class="menu-item">Documentos</a>
+                <a href="reportes.jsp" class="menu-item">Categoria</a>
+                <a href="cerrarSesion.jsp" class="menu-item">Cerrar Sesión</a>
+            </div>
             
+        <% } else { %>
+            <div class="error-message">
+                <p>Usuario o contraseña incorrectos.</p>
+            </div>
+            <a href="login.jsp">Volver a intentar</a>
+        <% } %>
     </div>
-   
-                              
-    </form> 
-     
-            
-    </body>
+</body>
 </html>
