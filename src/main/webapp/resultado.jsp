@@ -147,10 +147,12 @@
             
             <!-- Menú de opciones -->
             <div class="menu">
+
                 <a href="perfil.jsp" class="menu-item">Perfil</a>
                 <a href="configuracion.jsp" class="menu-item">Configuración</a>
                 <a href="reportes.jsp" class="menu-item">Reportes</a>
                 <a href="cerrarsesion.jsp" class="menu-item">Cerrar Sesión</a>
+                <a href="sesiones.jsp" class="munu-item">Sesiones</a>
             </div>
             
         <% } else { %>
