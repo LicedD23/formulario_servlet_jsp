@@ -20,8 +20,8 @@
         
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f5f7fa;
-            color: #333;
+            background-color: #f4f4f4;
+            color: #f4f4f4;
             line-height: 1.6;
             padding: 0;
             margin: 0;
@@ -32,7 +32,7 @@
         }
         
         .container {
-            background-color: white;
+            background-color: #5b585847;
             border-radius: 10px;
             box-shadow: 0 3px 20px rgba(0, 0, 0, 0.1);
             padding: 40px;
@@ -42,7 +42,7 @@
         }
         
         h1 {
-            color: #2563eb;
+            color: #333;
             margin-bottom: 30px;
             font-size: 28px;
             position: relative;
@@ -57,7 +57,7 @@
             transform: translateX(-50%);
             width: 60px;
             height: 4px;
-            background-color: #2563eb;
+            background-color: #333;
             border-radius: 2px;
         }
         
@@ -67,8 +67,8 @@
         }
         
         .success-message {
-            background-color: #d1fae5;
-            border-left: 4px solid #10b981;
+            background-color: #333;
+            border-left: 4px solid #020202;
             padding: 15px 20px;
             border-radius: 5px;
             text-align: left;
@@ -76,8 +76,8 @@
         }
         
         .error-message {
-            background-color: #fee2e2;
-            border-left: 4px solid #ef4444;
+            background-color: #333;
+            border-left: 4px solid #000000;
             padding: 15px 20px;
             border-radius: 5px;
             text-align: left;
@@ -86,14 +86,14 @@
         
         .username {
             font-weight: bold;
-            color: #1e40af;
+            color: #ffffff;
         }
         
         a {
             display: inline-block;
             margin-top: 15px;
             padding: 12px 30px;
-            background-color: #2563eb;
+            background-color: #777575;
             color: white;
             text-decoration: none;
             border-radius: 5px;
@@ -107,7 +107,6 @@
             box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
         }
         
-        /* Menú de opciones */
         .menu {
             margin-top: 30px;
             display: grid;
@@ -148,12 +147,16 @@
             
             <!-- Menú de opciones -->
             <div class="menu">
+
                 <a href="perfil.jsp" class="menu-item">Inicio</a>
                 <a href="configuracion.jsp" class="menu-item">Documentos</a>
                 <a href="reportes.jsp" class="menu-item">Categoria</a>
-                <a href="cerrarSesion.jsp" class="menu-item">Cerrar Sesión</a>
+                <a href="cerrarsesion.jsp" class="menu-item">Cerrar Sesión</a>
                 <a href="sesiones.jsp" class="munu-item">Sesiones</a>
-            </div>
+
+                <a href="perfil.jsp" class="menu-item">Perfil</a>
+                <a href="configuracion.jsp" class="menu-item">Configuración</a>
+                            </div>
             
         <% } else { %>
             <div class="error-message">

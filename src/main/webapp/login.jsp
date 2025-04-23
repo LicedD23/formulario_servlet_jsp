@@ -18,7 +18,7 @@
       font-family: 'Segoe UI', Arial, sans-serif;
       margin: 0;
       padding: 400px;
-      background-color: #cde0fb96;
+      background-color: #f4f4f4;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -26,7 +26,7 @@
     }
     
     .login-container {
-      background-color: #00a4ff33;
+      background-color: #5b585847;
       border-radius: 8px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       padding: 40px;
@@ -40,7 +40,7 @@
     }
     
     .login-header h1 {
-      color: #192531;
+      color: #333;
       font-size: 28px;
       font-weight: 600;
       margin: 0;
@@ -68,12 +68,12 @@
     }
     
     .input-group input:focus {
-      border-color: #3498db;
+      border-color: #f4f4f4;
       outline: none;
     }
     
     .submit-button {
-      background-color: #00365b;
+      background-color: #333;
       color: white;
       border: none;
       border-radius: 4px;
@@ -86,7 +86,7 @@
     }
     
     .submit-button:hover {
-      background-color: #2980b9;
+        background-color: #cccccc;
     }
     
     @media (max-width: 480px) {
