@@ -152,6 +152,7 @@
                 <a href="configuracion.jsp" class="menu-item">Documentos</a>
                 <a href="reportes.jsp" class="menu-item">Categoria</a>
                 <a href="cerrarSesion.jsp" class="menu-item">Cerrar Sesión</a>
+                <a href="sesiones.jsp" class="munu-item">Sesiones</a>
             </div>
             
         <% } else { %>
