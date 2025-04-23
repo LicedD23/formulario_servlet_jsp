@@ -104,7 +104,7 @@
     <form name="Ingreso" action="ValidarUsuario" method="POST">
       <div class="input-group">
         <label for="usuario">Usuario:</label>
-        <input type="text" id="usuario" name="usuario" placeholder="Ingrese su nombre de usuario" required />
+        <input type="text" id="usuario" name="usuario" placeholder="Ingrese el nombre del usuario" required />
       </div>
       <div class="input-group">
         <label for="clave">Clave:</label>
