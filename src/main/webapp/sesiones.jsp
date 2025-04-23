@@ -4,188 +4,208 @@
     Author     : SENA
 --%>
 
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Manejo de Sesiones en JSP</title>
+<%@page contentType="text/html" pageEncoding="UTF-8"%> 
+<!DOCTYPE html> 
+<html> 
+<head> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manejo de Sesiones</title> 
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
         body {
-            background-color: #f0f0f0;
-            color: #333;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #e0e0e0;
+            margin: 0;
             padding: 20px;
+            color: #333;
         }
         
         .container {
             max-width: 800px;
             margin: 0 auto;
-            background-color: #fff;
+            background-color: #f5f5f5;
             border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            padding: 30px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            padding: 25px;
         }
         
         h1 {
-            color: #333;
+            color: #1a1a1a;
             text-align: center;
-            margin-bottom: 30px;
-            font-size: 28px;
-            border-bottom: 2px solid #ddd;
+            border-bottom: 2px solid #999;
             padding-bottom: 15px;
-        }
-        
-        .section {
-            margin-bottom: 30px;
-            background-color: #f7f7f7;
-            padding: 20px;
-            border-radius: 6px;
-            border-left: 4px solid #aaa;
+            margin-top: 0;
         }
         
         h2 {
-            color: #444;
-            margin-bottom: 15px;
-            font-size: 20px;
+            color: #404040;
+            font-size: 1.2rem;
+            margin-top: 20px;
+            border-left: 4px solid #707070;
+            padding-left: 10px;
         }
         
-        .info-item {
+        p {
             margin-bottom: 10px;
-            color: #555;
+            line-height: 1.5;
+            color: #505050;
         }
         
-        .info-label {
-            font-weight: bold;
-            display: inline-block;
-            min-width: 150px;
-        }
-        
-        .form-group {
-            margin-bottom: 15px;
-        }
-        
-        label {
-            display: block;
-            margin-bottom: 5px;
-            color: #555;
-            font-weight: 500;
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 6px;
+            margin: 15px 0;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         }
         
         input[type="text"] {
             width: 100%;
-            padding: 10px;
+            padding: 8px;
+            margin-bottom: 10px;
             border: 1px solid #ccc;
             border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
             background-color: #f9f9f9;
-            color: #333;
         }
         
-        input[type="text"]:focus {
-            outline: none;
-            border-color: #888;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-        }
-        
-        button {
-            background-color: #666;
+        input[type="submit"] {
+            background-color: #707070;
             color: white;
             border: none;
             padding: 10px 15px;
             border-radius: 4px;
             cursor: pointer;
-            font-weight: 500;
-            transition: background-color 0.3s;
+            font-size: 16px;
+            transition: background-color 0.2s;
         }
         
-        button:hover {
-            background-color: #555;
+        input[type="submit"]:hover {
+            background-color: #505050;
         }
         
-        .btn-secondary {
-            background-color: #999;
+        form input[value="Limpiar sesión"] {
+            background-color: #8a8a8a;
         }
         
-        .btn-secondary:hover {
-            background-color: #888;
+        form input[value="Limpiar sesión"]:hover {
+            background-color: #757575;
+        }
+        
+        .session-info, .client-info, .saved-data {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         }
         
         .saved-data {
-            background-color: #eaeaea;
-            padding: 15px;
-            border-radius: 4px;
-            margin-top: 10px;
+            background-color: #ececec;
         }
         
-        .data-item {
-            margin-bottom: 8px;
-        }
-        
-        .footer {
-            text-align: center;
-            margin-top: 30px;
-            color: #777;
-            font-size: 14px;
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+            
+            form {
+                padding: 15px;
+            }
         }
     </style>
-</head>
-<body>
+</head> 
+<body> 
     <div class="container">
-        <h1>Manejo de Sesiones en JSP</h1>
+        <h1>Manejo de Sesiones en JSP</h1> 
         
-        <div class="section">
-            <h2>Información de sesión:</h2>
-            <div class="info-item"><span class="info-label">ID de sesión:</span> <%= session.getId() %></div>
-            <div class="info-item"><span class="info-label">Número de visitas:</span> <%= session.getAttribute("visitas") != null ? session.getAttribute("visitas") : "0" %></div>
-            <div class="info-item"><span class="info-label">Fecha de primera visita:</span> <%= session.getAttribute("fechaPrimeraVisita") %></div>
-        </div>
-        
-        <div class="section">
-            <h2>Información del cliente:</h2>
-            <div class="info-item"><span class="info-label">Tu navegador es:</span> <%= request.getHeader("User-Agent") %></div>
-            <div class="info-item"><span class="info-label">Tu dirección IP es:</span> <%= request.getRemoteAddr() %></div>
-        </div>
-        
-        <div class="section">
-            <h2>Formulario para agregar datos a la sesión:</h2>
-            <form action="sesiones.jsp" method="post">
-                <div class="form-group">
-                    <label for="nombre">Nombre:</label>
-                    <input type="text" id="nombre" name="nombre" required>
-                </div>
+        <% 
+            Integer visitas = (Integer) session.getAttribute("contadorVisitas"); 
+            if (visitas == null) { 
+                visitas = 1; 
                 
-                <div class="form-group">
-                    <label for="color">Color favorito:</label>
-                    <input type="text" id="color" name="color" required>
-                </div>
-                
-                <button type="submit">Guardar en sesión</button>
-            </form>
+            } else { 
+                visitas++; 
+            } 
+            session.setAttribute("contadorVisitas", visitas); 
+            
+        
+            String navegador = request.getHeader("User-Agent"); 
+        %> 
+        
+        <div class="session-info">
+            <h2>Información de sesión:</h2> 
+            <p><strong>ID de sesión:</strong> <%= session.getId() %></p> 
+            <p><strong>Número de visitas:</strong> <%= visitas %></p> 
+            <p><strong>Fecha de primera visita:</strong>  
+            <%  
+                if(session.getAttribute("primeraVisita") == null) { 
+                    session.setAttribute("primeraVisita", new java.util.Date()); 
+                } 
+                out.print(session.getAttribute("primeraVisita")); 
+            %> 
+            </p>
         </div>
         
-        <% if(session.getAttribute("nombre") != null && session.getAttribute("color") != null) { %>
-        <div class="section">
-            <h2>Datos guardados en sesión:</h2>
+        <div class="client-info">
+            <h2>Información del cliente:</h2> 
+            <p><strong>Tu navegador es:</strong> <%= navegador %></p> 
+            <p><strong>Tu dirección IP es:</strong> <%= request.getRemoteAddr() %></p> 
+        </div>
+        
+        <h2>Formulario para agregar datos a la sesión:</h2> 
+        <form method="post"> 
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre"><br><br> 
+            <label for="color">Color favorito:</label>
+            <input type="text" id="color" name="color"><br><br> 
+            <input type="submit" value="Guardar en sesión"> 
+        </form> 
+        
+        <% 
+        
+            if(request.getMethod().equals("POST")) { 
+                String nombre = request.getParameter("nombre"); 
+                String color = request.getParameter("color"); 
+                
+                if(nombre != null && !nombre.trim().isEmpty()) { 
+                    session.setAttribute("nombreUsuario", nombre); 
+                } 
+                
+                if(color != null && !color.trim().isEmpty()) { 
+                    session.setAttribute("colorFavorito", color); 
+                } 
+            } 
+            
+            
+            String nombreGuardado = (String) session.getAttribute("nombreUsuario"); 
+            String colorGuardado = (String) session.getAttribute("colorFavorito"); 
+        %> 
+        
+        <% if(nombreGuardado != null || colorGuardado != null) { %> 
             <div class="saved-data">
-                <div class="data-item"><span class="info-label">Nombre:</span> <%= session.getAttribute("nombre") %></div>
-                <div class="data-item"><span class="info-label">Color favorito:</span> <%= session.getAttribute("color") %></div>
+                <h2>Datos guardados en sesión:</h2> 
+                <% if(nombreGuardado != null) { %> 
+                    <p><strong>Nombre:</strong> <%= nombreGuardado %></p> 
+                <% } %> 
+                <% if(colorGuardado != null) { %> 
+                    <p><strong>Color favorito:</strong> <%= colorGuardado %></p> 
+                <% } %>
             </div>
-            <form action="sesiones.jsp" method="post" style="margin-top: 15px;">
-                <input type="hidden" name="limpiar" value="true">
-                <button type="submit" class="btn-secondary">Limpiar sesión</button>
-            </form>
-        </div>
-        <% } %>
+            <form method="post" action="?accion=limpiar"> 
+                <input type="hidden" name="accion" value="limpiar"> 
+                <input type="submit" value="Limpiar sesión"> 
+            </form> 
+        <% } %> 
         
-        <div class="footer">
-            <p>Sistema de Manejo de Sesiones JSP - <%= new java.util.Date() %></p>
-        </div>
+        <% 
+        
+            if("limpiar".equals(request.getParameter("accion"))) { 
+                session.invalidate(); 
+                response.sendRedirect("sesiones.jsp"); 
+            } 
+        %> 
     </div>
-</body>
+</body> 
 </html>
